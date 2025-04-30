@@ -23,9 +23,11 @@ seaborn
 nbimporter
 pandas
 scipy
+time
+os
 
 To install the dependencies, you can run this command:
-pip install matplotlib numpy seaborn nbimporter pandas scipy
+pip install matplotlib numpy seaborn nbimporter pandas scipy time os
 
 Step-by-Step usage:
 
@@ -54,3 +56,8 @@ In file RMSE.ipynb:
 4. You store the RMSE values in a 2D array and display them with a custom color heatmap.
 
 In benchmarks.ipynb:
+1. One ECG signal file (MUSE_20180111_155115_19000.csv) is loaded from the ECGData/ directory. The first channel is extracted for testing.
+2. The defined filters(Savitzky–Golay (custom implementation), Moving Average, Gaussian Smoothing, Butterworth Low-pass Filter, Median Filter, Wavelet Denoising) are applied to the ECG signal. Results are stored in a dictionary.
+3. Each filter is evaluated using SNR and RMSE.
+4. Residual plots (original − filtered) for the first 500 samples are generated to assess how much each filter changes the signal.
+5. A helper function compute_psnr() is implemented to calculate Peak Signal-to-Noise Ratio.
